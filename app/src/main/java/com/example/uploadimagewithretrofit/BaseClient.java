@@ -1,6 +1,7 @@
 package com.example.uploadimagewithretrofit;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BaseClient {
@@ -19,6 +20,7 @@ public class BaseClient {
 
             retrofitEndPoint = new Retrofit.Builder()
                     .baseUrl(BaseUrl)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
